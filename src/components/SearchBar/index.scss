@@ -1,0 +1,24 @@
+.form {
+  margin: 12px 12px 0 0;
+  display: flex;
+}
+
+input {
+  padding: 12px;
+  border: none;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s all;
+
+  &:hover {
+    background: darken(#efefef, 15%);
+  }
+}

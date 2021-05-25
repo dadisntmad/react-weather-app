@@ -3,7 +3,7 @@ import { Types } from '../actions/weather';
 
 const initialState = {
   weather: {},
-  currentCity: 'Kyiv',
+  currentCity: '',
 };
 
 const weather = produce((draft, action) => {
@@ -13,6 +13,9 @@ const weather = produce((draft, action) => {
       break;
     case Types.SET_CURRENT_CITY:
       draft.currentCity = action.payload;
+      break;
+    case Types.SET_CLEAR:
+      draft.currentCity = '';
       break;
     default:
   }

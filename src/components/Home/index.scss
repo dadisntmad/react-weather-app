@@ -4,6 +4,75 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 750px;
-  height: 500px;
-  border: 1px solid #000;
+  height: 600px;
+  background: #3a2b40;
+  border-radius: 10px;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 36px;
+  }
+
+  &__city {
+    color: #fff;
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+
+  &__date {
+    color: #b5b5b5;
+  }
+
+  &__img {
+    text-align: center;
+  }
+
+  &__temp {
+    text-align: center;
+    color: #fff;
+    font-size: 38px;
+
+    span {
+      color: #fff;
+      font-size: 46px;
+    }
+
+    div {
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: #c52765;
+    }
+  }
+
+  &__additional {
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    text-align: center;
+
+    span {
+      color: #fff;
+    }
+
+    p {
+      color: #8c8c8c;
+      margin-top: 5px;
+    }
+  }
 }
