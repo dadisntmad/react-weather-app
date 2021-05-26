@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeather } from '../../redux/actions/weather';
+import unknown from '../../assets/weather/unknown.svg';
+import { fetchForecast, fetchWeather, setClear } from '../../redux/actions/weather';
 import { getCurrentDate } from '../helpers/getCurrentDate';
 import { imagePicker } from '../helpers/imagePicker';
 import SearchBar from '../SearchBar/SearchBar';
@@ -10,12 +11,16 @@ const Home = () => {
   const dispatch = useDispatch();
   const weather = useSelector(({ weather }) => weather.weather);
   const city = useSelector(({ weather }) => weather.currentCity);
+  const forecast = useSelector(({ weather }) => weather.forecast);
 
-  React.useEffect(() => {
-    if (city) {
+  const search = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
       dispatch(fetchWeather(city));
+      dispatch(fetchForecast(city));
+      dispatch(setClear());
     }
-  }, [dispatch, city]);
+  };
 
   const upper = letter => {
     return letter[0].toUpperCase() + letter.slice(1);
@@ -25,7 +30,7 @@ const Home = () => {
     <div className="weather">
       <div className="container">
         <div className="searchbar">
-          <SearchBar currentCity={city} />
+          <SearchBar currentCity={city} search={search} />
         </div>
         <div className="content">
           {weather.main ? (
@@ -58,9 +63,26 @@ const Home = () => {
               </div>
             </div>
           ) : (
-            <h1>No selected city</h1>
+            <div className="content__noinfo">
+              <img src={unknown} alt="unknown weather" style={{ width: 180 }} />
+              <p>No information given</p>
+            </div>
           )}
         </div>
+      </div>
+      <div className="forecast">
+        {forecast &&
+          forecast.map(item => (
+            <div key={item.dt}>
+              <div forecast__day>{item.dt_txt}</div>
+              <span className="forecast__img">
+                {imagePicker(item.weather[0].id, item.weather[0].description)}
+              </span>
+              <div className="forecast__temp">
+                {Math.round(item.main.temp)} <span>°</span>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );

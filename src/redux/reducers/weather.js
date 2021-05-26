@@ -4,6 +4,7 @@ import { Types } from '../actions/weather';
 const initialState = {
   weather: {},
   currentCity: '',
+  forecast: [],
 };
 
 const weather = produce((draft, action) => {
@@ -16,6 +17,9 @@ const weather = produce((draft, action) => {
       break;
     case Types.SET_CLEAR:
       draft.currentCity = '';
+      break;
+    case Types.SET_FORECAST:
+      draft.forecast = action.payload;
       break;
     default:
   }

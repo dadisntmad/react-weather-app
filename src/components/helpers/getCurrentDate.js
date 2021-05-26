@@ -23,7 +23,7 @@ const months = [
   'December',
 ];
 
-export const getCurrentDate = (separator = ' ') => {
+export const getCurrentDate = () => {
   let newDate = new Date();
   let weekday = newDate.getDay();
   let weekdayName = arrayOfWeekdays[weekday];
@@ -32,5 +32,5 @@ export const getCurrentDate = (separator = ' ') => {
   let monthName = months[month];
   let year = newDate.getFullYear();
 
-  return `${weekdayName}${separator}${date}${separator}${monthName}${separator}${year}${separator}`;
+  return `${weekdayName} ${date} ${monthName} ${year}`;
 };
