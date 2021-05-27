@@ -1,14 +1,14 @@
-import freezingRain from '../../assets/weather/chancerain.svg';
-import thunderStorms from '../../assets/weather/chancetstorms.svg';
-import clear from '../../assets/weather/clear.svg';
-import cloudy from '../../assets/weather/cloudy.svg';
-import flurries from '../../assets/weather/flurries.svg';
-import atmosphere from '../../assets/weather/fog.svg';
-import mostlyCloudy from '../../assets/weather/mostlycloudy.svg';
-import fewClouds from '../../assets/weather/partlysunny.svg';
-import rain from '../../assets/weather/rain.svg';
-import snow from '../../assets/weather/snow.svg';
-import unknown from '../../assets/weather/unknown.svg';
+import freezingRain from '../assets/weather/chancerain.svg';
+import thunderStorms from '../assets/weather/chancetstorms.svg';
+import clear from '../assets/weather/clear.svg';
+import cloudy from '../assets/weather/cloudy.svg';
+import flurries from '../assets/weather/flurries.svg';
+import atmosphere from '../assets/weather/fog.svg';
+import mostlyCloudy from '../assets/weather/mostlycloudy.svg';
+import fewClouds from '../assets/weather/partlysunny.svg';
+import rain from '../assets/weather/rain.svg';
+import snow from '../assets/weather/snow.svg';
+import unknown from '../assets/weather/unknown.svg';
 
 export const imagePicker = (condition, alt) => {
   switch (condition) {

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import unknown from '../../assets/weather/unknown.svg';
+import { getCurrentDate } from '../../helpers/getCurrentDate';
+import { imagePicker } from '../../helpers/imagePicker';
 import { fetchForecast, fetchWeather, setClear } from '../../redux/actions/weather';
-import { getCurrentDate } from '../helpers/getCurrentDate';
-import { imagePicker } from '../helpers/imagePicker';
+import Forecast from '../Forecast/Forecast';
 import SearchBar from '../SearchBar/SearchBar';
 import './index.scss';
 
@@ -70,20 +71,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="forecast">
-        {forecast &&
-          forecast.map(item => (
-            <div key={item.dt}>
-              <div forecast__day>{item.dt_txt}</div>
-              <span className="forecast__img">
-                {imagePicker(item.weather[0].id, item.weather[0].description)}
-              </span>
-              <div className="forecast__temp">
-                {Math.round(item.main.temp)} <span>°</span>
-              </div>
-            </div>
-          ))}
-      </div>
+      <Forecast forecast={forecast} />
     </div>
   );
 };

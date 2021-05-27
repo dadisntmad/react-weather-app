@@ -1,0 +1,27 @@
+.forecast {
+  display: flex;
+  text-align: center;
+  width: 540px;
+  margin: 0 auto;
+  overflow: auto;
+
+  &__day {
+    color: #fff;
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    img {
+      width: 100px !important;
+    }
+  }
+
+  &__temp {
+    color: #fff;
+
+    span {
+      color: #fff;
+    }
+  }
+}
