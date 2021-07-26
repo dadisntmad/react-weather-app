@@ -1,20 +1,21 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import unknown from '../../assets/weather/unknown.svg';
-import { getCurrentDate } from '../../helpers/getCurrentDate';
-import { imagePicker } from '../../helpers/imagePicker';
-import { fetchForecast, fetchWeather, setClear } from '../../redux/actions/weather';
+import {getCurrentDate} from '../../helpers/getCurrentDate';
+import {imagePicker} from '../../helpers/imagePicker';
+import {fetchForecast, fetchWeather, setClear} from '../../redux/actions/weather';
 import Forecast from '../Forecast/Forecast';
 import SearchBar from '../SearchBar/SearchBar';
 import './index.scss';
+import {RootState} from '../../redux/reducers';
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const weather = useSelector(({ weather }) => weather.weather);
-  const city = useSelector(({ weather }) => weather.currentCity);
-  const forecast = useSelector(({ weather }) => weather.forecast);
+  const weather = useSelector(({weather}: RootState) => weather.weather);
+  const city = useSelector(({weather}: RootState) => weather.currentCity);
+  const forecast = useSelector(({weather}: RootState) => weather.forecast);
 
-  const search = e => {
+  const search = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === 'Enter') {
       e.preventDefault();
       dispatch(fetchWeather(city));
@@ -23,7 +24,7 @@ const Home = () => {
     }
   };
 
-  const upper = letter => {
+  const upper = (letter: string): string => {
     return letter[0].toUpperCase() + letter.slice(1);
   };
 
@@ -31,7 +32,7 @@ const Home = () => {
     <div className="weather">
       <div className="container">
         <div className="searchbar">
-          <SearchBar currentCity={city} search={search} />
+          <SearchBar currentCity={city} search={search}/>
         </div>
         <div className="content">
           {weather.main ? (
@@ -65,13 +66,13 @@ const Home = () => {
             </div>
           ) : (
             <div className="content__noinfo">
-              <img src={unknown} alt="unknown weather" style={{ width: 180 }} />
+              <img src={unknown} alt="unknown weather" style={{width: 180}}/>
               <p>No information given</p>
             </div>
           )}
         </div>
       </div>
-      <Forecast forecast={forecast} />
+      <Forecast forecast={forecast}/>
     </div>
   );
 };

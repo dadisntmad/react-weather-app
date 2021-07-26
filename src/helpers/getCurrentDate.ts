@@ -1,4 +1,4 @@
-const arrayOfWeekdays = [
+const arrayOfWeekdays: string[] = [
   'Sunday',
   'Monday',
   'Tuesday',
@@ -8,7 +8,7 @@ const arrayOfWeekdays = [
   'Saturday',
 ];
 
-const months = [
+const months: string[] = [
   'January',
   'February',
   'March',
@@ -23,8 +23,8 @@ const months = [
   'December',
 ];
 
-export const getCurrentDate = () => {
-  let newDate = new Date();
+export const getCurrentDate = (): string => {
+  let newDate: Date = new Date();
   let weekday = newDate.getDay();
   let weekdayName = arrayOfWeekdays[weekday];
   let date = newDate.getDate();

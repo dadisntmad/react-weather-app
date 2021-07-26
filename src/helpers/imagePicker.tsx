@@ -1,3 +1,4 @@
+import React from 'react';
 import freezingRain from '../assets/weather/chancerain.svg';
 import thunderStorms from '../assets/weather/chancetstorms.svg';
 import clear from '../assets/weather/clear.svg';
@@ -10,7 +11,7 @@ import rain from '../assets/weather/rain.svg';
 import snow from '../assets/weather/snow.svg';
 import unknown from '../assets/weather/unknown.svg';
 
-export const imagePicker = (condition, alt) => {
+export const imagePicker = (condition: number, alt: string) => {
   switch (condition) {
     case 200:
     case 201:
@@ -22,7 +23,7 @@ export const imagePicker = (condition, alt) => {
     case 230:
     case 231:
     case 232:
-      return <img src={thunderStorms} alt={alt} style={{ width: 180 }} />;
+      return <img src={thunderStorms} alt={alt} style={{width: 180}}/>;
     case 300:
     case 301:
     case 302:
@@ -32,20 +33,20 @@ export const imagePicker = (condition, alt) => {
     case 313:
     case 314:
     case 321:
-      return <img src={unknown} alt={alt} style={{ width: 180 }} />;
+      return <img src={unknown} alt={alt} style={{width: 180}}/>;
     case 500:
     case 501:
     case 502:
     case 503:
     case 504:
-      return <img src={rain} alt={alt} style={{ width: 180 }} />;
+      return <img src={rain} alt={alt} style={{width: 180}}/>;
     case 511:
-      return <img src={freezingRain} alt={alert} style={{ width: 180 }} />;
+      return <img src={freezingRain} alt={alt} style={{width: 180}}/>;
     case 520:
     case 521:
     case 522:
     case 531:
-      return <img src={flurries} alt={alt} style={{ width: 180 }} />;
+      return <img src={flurries} alt={alt} style={{width: 180}}/>;
     case 600:
     case 601:
     case 602:
@@ -57,7 +58,7 @@ export const imagePicker = (condition, alt) => {
     case 620:
     case 621:
     case 622:
-      return <img src={snow} alt={alt} style={{ width: 180 }} />;
+      return <img src={snow} alt={alt} style={{width: 180}}/>;
     case 701:
     case 711:
     case 721:
@@ -68,17 +69,17 @@ export const imagePicker = (condition, alt) => {
     case 762:
     case 771:
     case 781:
-      return <img src={atmosphere} alt={alt} style={{ width: 180 }} />;
+      return <img src={atmosphere} alt={alt} style={{width: 180}}/>;
     case 800:
-      return <img src={clear} alt={alt} style={{ width: 180 }} />;
+      return <img src={clear} alt={alt} style={{width: 180}}/>;
     case 801:
-      return <img src={fewClouds} alt={alt} style={{ width: 180 }} />;
+      return <img src={fewClouds} alt={alt} style={{width: 180}}/>;
     case 802:
-      return <img src={cloudy} alt={alt} style={{ width: 180 }} />;
+      return <img src={cloudy} alt={alt} style={{width: 180}}/>;
     case 803:
     case 804:
-      return <img src={mostlyCloudy} alt={alt} style={{ width: 180 }} />;
+      return <img src={mostlyCloudy} alt={alt} style={{width: 180}}/>;
     default:
-      return <img src={unknown} alt={alt} style={{ width: 180 }} />;
+      return <img src={unknown} alt={alt} style={{width: 180}}/>;
   }
 };

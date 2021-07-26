@@ -1,12 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setCurrentCity } from '../../redux/actions/weather';
+import {useDispatch} from 'react-redux';
+import {setCurrentCity} from '../../redux/actions/weather';
 import './index.scss';
 
-const SearchBar = ({ currentCity, search }) => {
+type SearchBarProps = {
+  currentCity: string
+  search: (e: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({currentCity, search}) => {
   const dispatch = useDispatch();
 
-  const onCityChange = e => {
+  const onCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setCurrentCity(e.target.value));
   };
 

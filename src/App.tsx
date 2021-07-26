@@ -1,10 +1,10 @@
 import React from 'react';
 import Home from './components/Home/Home';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <Home />
+      <Home/>
     </div>
   );
 }
